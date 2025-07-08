@@ -28,7 +28,7 @@ export class ModelAdministracion {
     let client;
     try {
       client = await pool.connect();
-      let querySql = `SELECT usuario, clave, estado FROM autenticacion.tab_usuarios WHERE usuario = $1`;
+      let querySql = `SELECT id, usuario, clave, estado FROM autenticacion.tab_usuarios WHERE usuario = $1`;
       const resultadoConsulta = await client.query(querySql, [usuario]);
       return { estado: true, datos: resultadoConsulta.rows };
     } catch (error) {

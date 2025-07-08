@@ -13,9 +13,9 @@ export class ControllerAdministracion {
     this.modelAdministracion = new ModelAdministracion();
   }
 
-  private _generarTokenJWT = (key: string) => {
+  private _generarTokenJWT = (datos: any) => {
     try {
-      const payloadJWT = { key };
+      const payloadJWT = { id_usuario: datos.id, usuario: datos.usuario };
       const secreto: string = `${process.env.SECRET_TOKEN_JWT}` || "";
       const tokenJwt = jwt.sign(payloadJWT, secreto);
 
@@ -112,7 +112,7 @@ export class ControllerAdministracion {
           res.status(401).json(respuesta);
           return;
         } else {
-          infoUsuario.datos[0].token = this._generarTokenJWT(infoUsuario.datos[0].usuario);
+          infoUsuario.datos[0].token = this._generarTokenJWT(infoUsuario.datos[0]);
           infoUsuario.datos[0].clave = '********'
           respuesta.estado = true;
           respuesta.mensaje = "inicio de sesion exitoso";
