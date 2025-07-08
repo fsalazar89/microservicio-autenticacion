@@ -1,0 +1,45 @@
+{
+  "name": "microservicio-autenticacion",
+  "version": "1.0.0",
+  "description": "Microservicio para manejar el registro y la autenticación de los usuarios",
+  "main": "index.js",
+  "scripts": {
+    "local": "nodemon --exec npx ts-node src/app.ts --local",
+    "start": "export AMBIENTE_APP=produccion&& npm run build && node dist/app.js",
+    "build": "tsc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fsalazar89/microservicio-autenticacion.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/fsalazar89/microservicio-autenticacion/issues"
+  },
+  "homepage": "https://github.com/fsalazar89/microservicio-autenticacion#readme",
+  "dependencies": {
+    "axios": "^1.10.0",
+    "cors": "^2.8.5",
+    "crypto": "^1.0.1",
+    "dotenv": "^17.0.1",
+    "express": "^5.1.0",
+    "http": "^0.0.1-security",
+    "joi": "^17.13.3",
+    "jsonwebtoken": "^9.0.2",
+    "moment-timezone": "^0.6.0",
+    "pg": "^8.16.3",
+    "uuid": "^11.1.0"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.19",
+    "@types/express": "^5.0.3",
+    "@types/jsonwebtoken": "^9.0.10",
+    "@types/node": "^24.0.10",
+    "nodemon": "^3.1.10",
+    "ts-node": "^10.9.2",
+    "ts-node-dev": "^2.0.0",
+    "typescript": "^5.8.3"
+  }
+}
